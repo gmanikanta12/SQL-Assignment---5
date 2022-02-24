@@ -1,0 +1,21 @@
+SQL Assignment - 5
+
+1. fetch query to print all workers excluding the first names 'vipul','satish'
+
+   SELECT * FROM WORKER 
+   WHERE FIRSTNAME NOT IN 
+   (SELECT * FROM WORKER 
+    WHERE FIRSTNAME = ('vipul','satish')
+
+2. fetch query to print workers whose firstname ends with 'h' and contains six alphabets.
+
+   SELECT * FROM WORKER 
+   WHERE FIRSTNAME LIKE "%h" AND LEN(FIRSTNAME) = 6
+
+3. write query to validate email of employee.
+
+   SELECT EMAIL_ADD AS VALID_EMAIL FROM WORKER
+   WHERE EMAIL_ADD LIKE '%_@__%.__%'
+   AND PATINDEX('%[^a-z,0-9,@,.,_,\-]%', EMAIL_ADD) = 0
+   GO
+   
